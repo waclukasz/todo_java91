@@ -8,10 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./styles.css">
-
+    
     <title>Todo App</title>
 </head>
 <body>
@@ -27,7 +28,13 @@
               </div>
               <div class="date-day-name">Wednesday</div>
           </header>
-      </div>
+          <div class="tasks-list"></div>
+          <button class="add-task-btn"><i class="fas fa-plus"></i></button>
+        </div>
+
+        <div class="modal-overlay hidden">
+            <div class="modal-container"></div>
+        </div>
   </div>
 
   <script src="./main.js"></script>
