@@ -21,6 +21,7 @@ setDate();
 const tasksList = [];
 
 const displayModalBtnElement = document.querySelector('.add-task-btn');
+
 displayModalBtnElement.addEventListener('click', () => {
     console.log('otworz modal');
     const modalElement = document.querySelector('.modal-overlay');
