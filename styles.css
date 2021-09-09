@@ -151,6 +151,20 @@ header {
     justify-content: flex-end;
 }
 
+.add-task-btn-container > button {
+    width: 100px;
+    margin-top: 20px;
+    padding: 8px 12px;
+    background-color: #64b765;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 2px 3px 10px 0 #aba9a8;
+}
+
+.add-task-btn-container > button:active {
+    box-shadow: none;
+}
+
 .hidden {
     display: none;
 }
