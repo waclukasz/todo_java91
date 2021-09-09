@@ -168,3 +168,40 @@ header {
 .hidden {
     display: none;
 }
+
+.tasks-list {
+    padding-top: 40px;
+}
+
+.check-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #5f5c58;
+}
+
+.task-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-container i {
+    display: none;
+    color: #64b765;
+    font-size: 11px;
+}
+
+.task-container.completed > .check-btn {
+    border-color: #64b765;
+}
+.task-container.completed > p {
+    color: rgb(174, 174, 174);
+}
+
+.task-container.completed i {
+    display: inline;
+}
