@@ -29,11 +29,19 @@
               <div class="date-day-name">Wednesday</div>
           </header>
           <div class="tasks-list"></div>
+
           <button class="add-task-btn"><i class="fas fa-plus"></i></button>
         </div>
 
         <div class="modal-overlay hidden">
-            <div class="modal-container"></div>
+            <div class="modal-container">
+                <i class="fas fa-times close-modal-btn"></i>
+                <h3>Add your task!</h3>
+                <input type="text" id="taskName" class="task-input" autocomplete="off">
+                <div class="add-task-btn-container">
+                    <button id="addTask">Add task</button>
+                </div>
+            </div>
         </div>
   </div>
 

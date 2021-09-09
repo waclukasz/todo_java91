@@ -4,6 +4,27 @@
   }
 
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(10px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+
 body {
     font-family: 'Lato', sans-serif;
     color: #5f5c58;
@@ -83,6 +104,10 @@ header {
     left: 0;
     right: 0;
     background-color: #5454549e;
+    animation-name: fadeIn;
+    animation-duration: 250ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .modal-container {
@@ -91,8 +116,39 @@ header {
     left: calc(50% - 250px);
     width: 500px;
     height: 300px;
+    padding: 30px;
     background-color: var(--white);
     border-radius: 8px;
+    animation-name: slideUp;
+    animation-duration: 250ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.modal-container > h3 {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.task-input {
+    width: 100%;
+    border: 1px solid #a5a3a1;
+    border-radius: 4px;
+    padding: 4px 8px;
+    color: #5f5c58;
+}
+
+.add-task-btn-container {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .hidden {
