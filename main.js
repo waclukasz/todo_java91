@@ -21,7 +21,7 @@ const setDate = () => {
 
 setDate();
 
-const tasksList = [];
+let tasksList = [];
 
 const toggleModal = () => {
     const modalElement = document.querySelector('.modal-overlay');
@@ -34,7 +34,17 @@ displayModalBtnElement.addEventListener('click', toggleModal);
 const closeBtnElement = document.querySelector('.close-modal-btn');
 closeBtnElement.addEventListener('click', toggleModal);
 
-const renderTask = () => {
+const setTaskCompleted = (taskId) => {
+    tasksList = tasksList.map((task) => {
+        if (task.id === taskId) {
+            task.isCompleted = !task.isCompleted;
+        }
+
+        return task;
+    })
+}
+
+const renderTask = (task) => {
     // get element from HTML
     const taskListElement = document.querySelector('.tasks-list');
 
@@ -48,13 +58,34 @@ const renderTask = () => {
     checkBtn.classList.add('check-btn');
     checkIcon.classList.add('fas', 'fa-check');
 
-    taskParagraph.innerText = 'My first'
+    if (task.isCompleted) {
+        taskContainer.classList.add('completed')
+    }
+
+    checkBtn.addEventListener('click', () => {
+        setTaskCompleted(task.id);
+
+        renderTasks();
+    })
+
+    taskParagraph.innerText = task.name;
+
+    taskContainer.setAttribute('data-id', task.id)
 
     // created elements added to HTML
     taskContainer.appendChild(taskParagraph);
     taskContainer.appendChild(checkBtn);
     checkBtn.appendChild(checkIcon)
     taskListElement.appendChild(taskContainer);
+}
+
+const renderTasks = () => {
+    // to restet previous state
+    document.querySelector('.tasks-list').innerHTML = null
+    
+    tasksList.forEach((task) => {
+        renderTask(task);
+    })
 }
 
 const validateTask = (taskName) => {
@@ -76,7 +107,7 @@ const addTaskToModel = (taskInput) => {
         id: Math.random().toString()
     };
 
-    tasksList.push(task);
+    tasksList.unshift(task);
 
     taskInput.value = '';
 }
@@ -92,10 +123,12 @@ addTaskBtnElement.addEventListener('click', () => {
     }
 
     addTaskToModel(taskNameInputElement);
+    renderTasks();
     toggleModal();
 })
 
 
 
-
-
+// Dodać stylowanie do inputa oraz komunikat pod nim, kiedy walidacja nie przejdzie
+// Dodać usuwanie zadania (dodatkowy przycisk po hover, bez hover, lub na dwuklik)
+// po wykonaniu zadania, zadanie leci na koniec listy. *
